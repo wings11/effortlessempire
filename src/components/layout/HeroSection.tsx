@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import type { CarouselApi } from '@/components/ui/carousel'
 
 const heroSlides = [
   {
@@ -27,7 +28,7 @@ const heroSlides = [
 ]
 
 export default function HeroSection() {
-  const [api, setApi] = useState<any>()
+  const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
