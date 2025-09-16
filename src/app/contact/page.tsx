@@ -92,15 +92,17 @@ export default function ContactPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {contactMethods.map((method, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400">
-                  <CardContent className="p-6">
+                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400 h-full flex">
+                  <CardContent className="p-6 h-full flex flex-col w-full">
                     <div className="text-4xl mb-4">{method.icon}</div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{method.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{method.description}</p>
-                    <p className="text-yellow-600 font-semibold mb-4">{method.contact}</p>
-                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white">
+                    <div className="flex flex-col gap-2 flex-grow">
+                      <p className="text-gray-600 text-sm">{method.description}</p>
+                      <p className="text-yellow-600 font-semibold">{method.contact}</p>
+                    </div>
+                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white mt-auto">
                       {method.action}
                     </Button>
                   </CardContent>
@@ -238,15 +240,19 @@ export default function ContactPage() {
                   ))}
                 </div>
                 
-                {/* Map Placeholder */}
+                {/* Google Map */}
                 <Card className="border-yellow-200 shadow-lg">
                   <CardContent className="p-6">
                     <h4 className="text-lg font-bold text-gray-900 mb-4">Find Us</h4>
-                    <div className="bg-gray-200 rounded-lg h-48 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="text-4xl mb-2">🗺️</div>
-                        <p>Interactive Map Coming Soon</p>
-                      </div>
+                    <div className="rounded-lg overflow-hidden border border-yellow-200">
+                      <iframe
+                        title="Effortless Empire Bangkok Map"
+                        src="https://www.google.com/maps?q=Silom+Road,+Bangrak,+Bangkok+10500,+Thailand&output=embed"
+                        className="w-full h-64 md:h-80"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        allowFullScreen
+                      />
                     </div>
                   </CardContent>
                 </Card>

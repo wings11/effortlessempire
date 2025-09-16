@@ -1,5 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { tools } from "@/lib/tools";
 
 const studyGuides = [
   {
@@ -94,37 +96,6 @@ const blogs = [
   }
 ];
 
-const tools = [
-  {
-    title: "IELTS Score Calculator",
-    description: "Calculate your overall IELTS band score",
-    icon: "🧮",
-    type: "Calculator",
-    link: "#"
-  },
-  {
-    title: "University Finder",
-    description: "Find universities that match your criteria",
-    icon: "🎓",
-    type: "Search Tool",
-    link: "#"
-  },
-  {
-    title: "Cost of Living Calculator",
-    description: "Compare living costs across different countries",
-    icon: "💱",
-    type: "Calculator", 
-    link: "#"
-  },
-  {
-    title: "Document Checklist Generator",
-    description: "Generate customized document lists for your application",
-    icon: "📋",
-    type: "Generator",
-    link: "#"
-  }
-];
-
 export default function ResourcesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-amber-50">
@@ -155,9 +126,9 @@ export default function ResourcesPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {studyGuides.map((guide, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400">
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400 h-full flex flex-col">
                   <CardHeader className="text-center">
                     <div className="text-4xl mb-3">{guide.icon}</div>
                     <CardTitle className="text-lg font-bold text-gray-900 mb-2">
@@ -167,7 +138,7 @@ export default function ResourcesPage() {
                       {guide.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="mt-auto">
                     <div className="space-y-3">
                       <span className="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">
                         {guide.type}
@@ -197,10 +168,10 @@ export default function ResourcesPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
               {webinars.map((webinar, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200">
-                  <CardContent className="p-6">
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200 h-full flex flex-col">
+                  <CardContent className="p-6 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-lg font-bold text-gray-900 flex-1">
                         {webinar.title}
@@ -218,7 +189,7 @@ export default function ResourcesPage() {
                       <p className="text-gray-600">⏰ {webinar.time}</p>
                       <p className="text-gray-600">👨‍🏫 {webinar.speaker}</p>
                     </div>
-                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white">
+                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white mt-auto">
                       {webinar.status === 'upcoming' ? 'Register Now' : 'Watch Recording'}
                     </Button>
                   </CardContent>
@@ -242,19 +213,21 @@ export default function ResourcesPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {tools.map((tool, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400 text-center">
-                  <CardContent className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {tools.map((tool) => (
+                <Card key={tool.id} className="hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400 text-center h-full flex flex-col">
+                  <CardContent className="p-6 flex flex-col h-full">
                     <div className="text-4xl mb-4">{tool.icon}</div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{tool.title}</h3>
                     <p className="text-gray-600 text-sm mb-4">{tool.description}</p>
                     <span className="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded mb-4">
                       {tool.type}
                     </span>
-                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white">
-                      Use Tool
-                    </Button>
+                    <Link href={tool.link} className="mt-auto">
+                      <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white">
+                        Use Tool
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -276,10 +249,10 @@ export default function ResourcesPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
               {blogs.map((blog, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400">
-                  <CardContent className="p-6">
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-yellow-200 hover:border-yellow-400 h-full flex flex-col">
+                  <CardContent className="p-6 flex flex-col h-full">
                     <div className="flex items-center justify-between mb-3">
                       <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">
                         {blog.category}
@@ -288,7 +261,7 @@ export default function ResourcesPage() {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{blog.title}</h3>
                     <p className="text-gray-600 mb-4 leading-relaxed">{blog.excerpt}</p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mt-auto">
                       <span className="text-gray-500 text-sm">{blog.date}</span>
                       <Button variant="outline" className="border-yellow-500 text-yellow-600 hover:bg-yellow-50">
                         Read More

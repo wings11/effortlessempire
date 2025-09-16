@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -38,12 +39,24 @@ export default function Footer() {
           <div className="mt-8 sm:mt-0">
             <h4 className="text-base sm:text-lg font-semibold mb-4 text-yellow-400">Our Services</h4>
             <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-              <li>Education Support</li>
-              <li>Language Proficiency</li>
-              <li>Professional Development</li>
-              <li>University Application</li>
-              <li>Scholarship Consultation</li>
-              <li>Career Preparation</li>
+              <li>
+                <Link href="/about" className="hover:text-yellow-400 transition-colors">Education Support</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-yellow-400 transition-colors">Language Proficiency</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-yellow-400 transition-colors">Professional Development</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-yellow-400 transition-colors">University Application</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-yellow-400 transition-colors">Scholarship Consultation</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-yellow-400 transition-colors">Career Preparation</Link>
+              </li>
             </ul>
           </div>
           

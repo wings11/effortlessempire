@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Flag from 'react-world-flags'
 
 const countries = [
-  { name: "UK", flag: "🇬🇧" },
-  { name: "Sweden", flag: "🇸🇪" },
-  { name: "Germany", flag: "🇩🇪" },
-  { name: "Canada", flag: "🇨🇦" },
-  { name: "Japan", flag: "🇯🇵" },
-  { name: "Korea", flag: "🇰🇷" }
+  { name: "UK", code: "GB" },
+  { name: "Sweden", code: "SE" },
+  { name: "Germany", code: "DE" },
+  { name: "Canada", code: "CA" },
+  { name: "Japan", code: "JP" },
+  { name: "Korea", code: "KR" }
 ]
 
 const services = [
@@ -47,7 +48,11 @@ export default function CountryEducationSection() {
                     key={index}
                     className="flex items-center space-x-3 p-3 sm:p-4 bg-white rounded-lg border-2 border-yellow-200 hover:border-yellow-400 transition-colors"
                   >
-                    <span className="text-2xl sm:text-3xl">{country.flag}</span>
+                    <Flag 
+                      code={country.code} 
+                      height="24" 
+                      className="w-8 h-6 rounded shadow-sm"
+                    />
                     <span className="text-base sm:text-lg font-medium text-gray-800">
                       {country.name}
                     </span>
