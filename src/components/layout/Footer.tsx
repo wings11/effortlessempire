@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -9,8 +10,14 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-sm">EE</span>
+              <div className="w-8 h-8 rounded flex items-center justify-center overflow-hidden">
+                <Image 
+                  src="/logo.jpg"
+                  alt="Effortless Empire Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain w-full h-full"
+                />
               </div>
               <h3 className="text-lg sm:text-xl font-bold">Effortless Empire Co.,Ltd</h3>
             </div>

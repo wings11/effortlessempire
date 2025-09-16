@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,8 +15,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center py-3 sm:py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
-            <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm">EE</span>
+            <div className="w-8 h-8 rounded flex items-center justify-center overflow-hidden">
+              <Image 
+                src="/logo.jpg"
+                alt="Effortless Empire Logo"
+                width={32}
+                height={32}
+                className="object-contain w-full h-full"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-base sm:text-lg lg:text-xl text-gray-900 leading-tight">
